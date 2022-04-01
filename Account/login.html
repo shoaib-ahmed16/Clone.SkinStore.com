@@ -30,7 +30,7 @@
                 <span class="message" id="pass"> </span>
 
                 <p>FORGOTTEN YOUR PASSWORD?</p>
-                <!-- <input type="submit" value="SIGN IN" /> -->
+                <input type="submit" value="SIGN IN" />
                 <p>or,Continue with</p>
                 <div class="log-face-google">
                     <a href="">
@@ -41,45 +41,9 @@
                     </a>
                 </div>
             </form>
-            <button onclick="Login()">Login</button>
         </div>
     </div>
 </body>
 
 </html>
-<script>
-
-
-let Login=async()=>{
-
-    try {
-        let login_data={
-            email:document.querySelector("#email").value,
-            password:document.querySelector("#password").value,
-        }
-
-        login_data=JSON.stringify(login_data);
-        let res=await fetch("https://projectskinstore.herokuapp.com/login",{
-            method:"POST",
-            body:login_data,
-            headers:{
-                "content-Type":"application/json",
-            }
-        });
-
-        let data=await res.json();
-        console.log({data:data});
-
-          if(data.token){
-          window.location.href="../HOME-PAGE/index.html"
-        }
-
-
-
-    } catch (error) {
-        console.log({error:error.message})
-    }
-}
-
-</script>
-<!-- <script src="login.js"></script> -->
+<script src="login.js"></script>

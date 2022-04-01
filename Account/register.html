@@ -24,9 +24,13 @@
                     <img src="image/facebook-icon.png" alt="" />
                     <span class="login-icon"> Facebook </span>
                 </a>
+
+
                 <a href="https://projectskinstore.herokuapp.com/auth/google">
                     <img src="image/google-icon.png" alt="" /><span class="login-icon">Google</span>
                 </a>
+
+                
             </div>
             <hr />
             <p>Or create an email account</p>
@@ -61,56 +65,19 @@
                     <span id="ref"></span>
 
                 </div>
-                <!-- <input type="submit" value="CONTINUE" id="submit" /> -->
+                <input type="submit" value="CONTINUE" id="submit" />
                 <p>
                     By proceeding, you are confirming that you agree to our
                     <a href="" class="term-cond-link">Terms and Conditions</a> and
                     <a href="" class="term-cond-link">Privacy Policy.</a>
                 </p>
             </form>
-            <button onclick="Register()">Submit</button>
+            <!-- <button onclick="Register()" id="submit">Submit</button> -->
         </div>
     </div>
 </body>
 
 </html>
-<!-- <script src="register.js"></script> -->
-<script>
+<script src="register.js"></script>
 
 
-let Register=async()=>{
-    try {
-        let register_data={
-            name:document.querySelector("#name").value,
-            email:document.querySelector("#email").value,
-            password:document.querySelector("#password").value,
-            mobileNumber:document.querySelector("#number").value,
-            role:"customer",
-            ref:document.querySelector("#ref-code").value,
-        }
-
-        register_data=JSON.stringify(register_data);
-        let res=await fetch("https://projectskinstore.herokuapp.com/register",{
-            method:"POST",
-            body:register_data,
-            headers:{
-                "content-Type":"application/json",
-            }
-        });
-
-        let data=await res.json();
-        console.log({data:data});
-        if(data.token){
-          window.location.href="login.html"
-        }
-
-
-
-
-
-    } catch (error) {
-        console.log({error:error.message})
-    }
-}
-
-</script>
