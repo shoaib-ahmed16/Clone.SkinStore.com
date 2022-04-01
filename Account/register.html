@@ -24,7 +24,7 @@
                     <img src="image/facebook-icon.png" alt="" />
                     <span class="login-icon"> Facebook </span>
                 </a>
-                <a href="https://loginservice.thehut.net/google?site=121&subsite=us&shield=true&clientState=eyJyZXR1cm5UbyI6Imh0dHBzJTNBJTJGJTJGd3d3LnNraW5zdG9yZS5jb20lMkZhY2NvdW50SG9tZS5hY2NvdW50In0=&returnUrl=https://www.skinstore.com/socialAuthentication.account">
+                <a href="https://projectskinstore.herokuapp.com/auth/google">
                     <img src="image/google-icon.png" alt="" /><span class="login-icon">Google</span>
                 </a>
             </div>
@@ -34,36 +34,83 @@
                 <label for="name">*Full Name</label>
                 <input type="text" id="name" />
                 <span class="message" id="nme"></span>
+
                 <label for="email">*Email address</label>
                 <input type="email" id="email" />
                 <span class="message" id="eml"></span>
+
                 <label for="con-email">*Confirm Email address</label>
                 <input type="email" id="con-email" />
                 <span class="message" id="conEmail"></span>
+
                 <label for="password">*Password</label>
                 <input type="password" id="password" />
                 <span class="message" id="pass"></span>
+
                 <label for="con-password">*confirm Password</label>
                 <input type="password" id="con-password" />
                 <span class="message" id="conPass"></span>
+
                 <label for="number">Cell Phone Number</label>
                 <input type="number" id="number" />
                 <span class="message" id="num"></span>
+
                 <div id="referal">
                     <label for="ref-code">Referral Code (optional)</label>
                     <input type="text" id="ref-code" />
                     <span id="ref"></span>
+
                 </div>
-                <input type="submit" value="CONTINUE" id="submit" />
+                <!-- <input type="submit" value="CONTINUE" id="submit" /> -->
                 <p>
                     By proceeding, you are confirming that you agree to our
                     <a href="" class="term-cond-link">Terms and Conditions</a> and
                     <a href="" class="term-cond-link">Privacy Policy.</a>
                 </p>
             </form>
+            <button onclick="Register()">Submit</button>
         </div>
     </div>
 </body>
 
 </html>
-<script src="register.js"></script>
+<!-- <script src="register.js"></script> -->
+<script>
+
+
+let Register=async()=>{
+    try {
+        let register_data={
+            name:document.querySelector("#name").value,
+            email:document.querySelector("#email").value,
+            password:document.querySelector("#password").value,
+            mobileNumber:document.querySelector("#number").value,
+            role:"customer",
+            ref:document.querySelector("#ref-code").value,
+        }
+
+        register_data=JSON.stringify(register_data);
+        let res=await fetch("https://projectskinstore.herokuapp.com/register",{
+            method:"POST",
+            body:register_data,
+            headers:{
+                "content-Type":"application/json",
+            }
+        });
+
+        let data=await res.json();
+        console.log({data:data});
+        if(data.token){
+          window.location.href="login.html"
+        }
+
+
+
+
+
+    } catch (error) {
+        console.log({error:error.message})
+    }
+}
+
+</script>
