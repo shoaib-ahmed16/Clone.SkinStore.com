@@ -10,8 +10,7 @@ async function APIcall1(url)
 }
 
 
-function append1(data,parent)
-{
+function append1(data,parent){
     parent.textContent = ""
     data.map(function(e){
 
@@ -86,12 +85,14 @@ function append1(data,parent)
         cart.textContent = `Quick Buy`
         cart.addEventListener("click",function()
         {
-            var cart_arr = JSON.parse(localStorage.getItem("cart_arr"))||[]
-            cart_arr.push(e)
-            localStorage.setItem("cart_arr",JSON.stringify(cart_arr))
+            
+            addtocart(e)
+            // var cart_arr = JSON.parse(localStorage.getItem("cart_arr"))||[]
+            // cart_arr.push(e)
+            // localStorage.setItem("cart_arr",JSON.stringify(cart_arr))
            
-            alert(`Add To Cart Successfull`)
-            window.location.href="/addToCart/cart.html"
+            // alert(`Add To Cart Successfull`)
+            // window.location.href="/addToCart/cart.html"
         })
         
         cart.setAttribute("id","cart")
@@ -104,7 +105,41 @@ function append1(data,parent)
 
     })
 }
+const addtocart=async(e)=>{
+    try {
+        let d_data={
+            product:e.productName,
+            brand:e.productBrand,
+            productPrice:e.priceOfProduct,
+            productImage:e.productPic
+        }
 
+        d_data=JSON.stringify(d_data);
+
+        let res=await fetch("https://projectskinstore.herokuapp.com/cartproduct",{
+            method:"POST",
+            body:d_data,
+            headers:{
+                "content-Type":"application/json",
+            }
+        });
+
+        let data=await res.json();
+        console.log({data:data});
+        // if(data.token){
+        //   window.location.href="login.html"
+        // }
+
+
+
+
+
+    } catch (error) {
+        console.log({err:error.message})
+    }
+}
+
+// }
 
 
 
