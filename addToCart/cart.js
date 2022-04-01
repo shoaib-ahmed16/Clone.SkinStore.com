@@ -1,6 +1,21 @@
-var cartitems = JSON.parse(localStorage.getItem("cart_arr"));
 
-displayCart(cartitems);
+let url="https://projectskinstore.herokuapp.com/cartproduct"
+
+
+async function fetchCartData()
+{
+    try {
+        let res = await fetch(url)
+        let data = await res.json();
+        // console.log(data)
+        displayCart(data.cartProducts);
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+}
+let data=fetchCartData()
+
 
 function displayCart(cartitems) {
     document.querySelector("tbody").textContent = "";
@@ -9,20 +24,20 @@ function displayCart(cartitems) {
 
         var td1 = document.createElement("td");
         var img = document.createElement("img");
-        img.setAttribute("src", data.api_featured_image);
+        img.setAttribute("src", data.productImage);
         td1.append(img);
 
         var td2 = document.createElement("td");
-        td2.textContent = data.name;
+        td2.textContent = data.product;
 
         var td3 = document.createElement("td");
-        td3.textContent = "1";
+        td3.textContent = data.quantities;
 
         var td4 = document.createElement("td");
-        td4.textContent = "$" + " " + data.price + ".00";
+        td4.textContent = "$" + " " + data.productPrice + ".00";
 
         var td5 = document.createElement("td");
-        td5.textContent = "$" + " " + data.price + ".00";
+        td5.textContent = "$" + " " + data.productPrice + ".00";
 
         var td6 = document.createElement("td");
         td6.innerHTML = "Delete";
@@ -38,18 +53,21 @@ function displayCart(cartitems) {
 // Delete Items here
 
 function deleteItems(index) {
+
+
     cartitems.splice(index, 1);
     localStorage.setItem("CartItems", JSON.stringify(cartitems));
     displayCart(cartitems);
 }
 
+
 // show total Price
-var total = cartitems.reduce(function(acc, cv) {
-    return acc + Number(cv.price);
+var total = data.cartProducts.reduce(function(acc, cv) {
+    return acc + Number(cv.productPrice);
 }, 0);
 
 document.querySelector("#subtotal").textContent = `Sub-Total: ₹ ${75*total}.00`;
-document.querySelector("#total-item").textContent= `Total Item: ${cartitems.length}`
+document.querySelector("#total-item").textContent= `Total Item: ${data.length}`
 document.querySelector("#total").textContent = `Total: ₹ ${total*75}.00`;
 
 // Apply Coupon here
