@@ -91,7 +91,7 @@ function append1(data,parent){
             // cart_arr.push(e)
             // localStorage.setItem("cart_arr",JSON.stringify(cart_arr))
            
-            // alert(`Add To Cart Successfull`)
+            alert(`Add To Cart Successfull`)
             // window.location.href="/addToCart/cart.html"
         })
         
