@@ -1,8 +1,10 @@
-let userData = JSON.parse(localStorage.getItem("userDatabase")) || [];
-localStorage.setItem("userDatabase", JSON.stringify(userData));
+// let userData = JSON.parse(localStorage.getItem("userDatabase")) || [];
+// localStorage.setItem("userDatabase", JSON.stringify(userData));
 
 document.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault();
+// function Register(){
+
     let name = document.querySelector("#name").value;
     let email = document.querySelector("#email").value;
     let con_email = document.querySelector("#con-email").value;
@@ -12,20 +14,9 @@ document.querySelector("form").addEventListener("submit", (e) => {
     let ref_code = document.querySelector("#ref-code").value;
     let ans = formValidation(name, email, con_email, password, con_password, number, ref_code);
     if (ans == true) {
-        function Person(name, email, con_email, password, con_password, number, ref_code) {
-            this.name = name;
-            this.email = email;
-            this.con_email = con_email;
-            this.password = password;
-            this.con_password = con_password;
-            this.number = number;
-            this.ref_code = ref_code;
-        }
-        const person = new Person(name, email, con_email, password, con_password, number, ref_code);
-        console.log(person);
-        userData.push(person);
-        localStorage.setItem("userDatabase", JSON.stringify(userData));
-        window.location.href = "login.html";
+        // datasendtodatabse()
+        Register()
+        
     }
 });
 
@@ -92,3 +83,46 @@ function formValidation(name, email, con_email, password, con_password, number, 
 
     return true;
 }
+
+// Sending to database
+
+// function datasendtodatabse(){
+
+    let Register=async()=>{
+        try {
+            let register_data={
+                name:document.querySelector("#name").value,
+                email:document.querySelector("#email").value,
+                password:document.querySelector("#password").value,
+                mobileNumber:document.querySelector("#number").value,
+                role:"customer",
+                ref:document.querySelector("#ref-code").value,
+            }
+    
+            register_data=JSON.stringify(register_data);
+            let res=await fetch("https://projectskinstore.herokuapp.com/register",{
+                method:"POST",
+                body:register_data,
+                headers:{
+                    "content-Type":"application/json",
+                }
+            });
+    
+            let data=await res.json();
+            console.log({data:data});
+            if(data.token){
+              window.location.href="login.html"
+            }
+    
+    
+    
+    
+    
+        } catch (error) {
+            console.log({error:error.message})
+        }
+    }
+    // register()
+
+    // }
+// }

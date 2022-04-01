@@ -1,4 +1,4 @@
-let userData = JSON.parse(localStorage.getItem("userDatabase"));
+
 
 document.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -6,9 +6,9 @@ document.querySelector("form").addEventListener("submit", (e) => {
     let password = document.querySelector("#password").value;
 
     let ans = formValidation(email, password);
-    console.log(ans);
+
     if (ans == true) {
-        mapData(userData, email, password);
+        Login()
     }
 });
 
@@ -29,18 +29,53 @@ function formValidation(email, password) {
     return true;
 }
 
-const mapData = (userData, email, password) => {
-    let flag = false;
-    userData.map((element) => {
-        if (email == element.email && password == element.password) {
-            console.log(element.email);
-            console.log(element.password);
-            flag = true;
-            window.location.href = "/Home-Page/index.html";
-            return;
+// const mapData = (userData, email, password) => {
+//     let flag = false;
+//     userData.map((element) => {
+//         if (email == element.email && password == element.password) {
+//             console.log(element.email);
+//             console.log(element.password);
+//             flag = true;
+//             window.location.href = "/Home-Page/index.html";
+//             return;
+//         }
+//     });
+//     if (flag == false) {
+//         window.alert("Invalid credentials");
+//     }
+// };
+
+let Login=async()=>{
+
+    try {
+        let login_data={
+            email:document.querySelector("#email").value,
+            password:document.querySelector("#password").value,
         }
-    });
-    if (flag == false) {
-        window.alert("Invalid credentials");
+
+        login_data=JSON.stringify(login_data);
+        let res=await fetch("https://projectskinstore.herokuapp.com/login",{
+            method:"POST",
+            body:login_data,
+            headers:{
+                "content-Type":"application/json",
+            }
+        });
+
+        let data=await res.json();
+        console.log({data:data});
+
+
+          if(data.token){
+            window.location.href="../HOME-PAGE/index.html"
+          }else{
+              alert("Invalid credentials")
+          }
+
+
+
+    } catch (error) {
+        console.log({error:error.message})
     }
-};
+}
+
