@@ -3,5 +3,5 @@ document.querySelector("form").addEventListener("submit", proceed);
         event.preventDefault();
         alert("Proceeding to payment");
        // window.location.href = "/addToCart/Payment/pay.html";
-       window.location.href="https://projectskinstore.herokuapp.com/"
+       window.location.href="http://localhost:5000"
     }
