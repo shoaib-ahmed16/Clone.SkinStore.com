@@ -51,6 +51,22 @@ function displayCart(cartitems) {
     '#total-item'
   ).textContent = `Total Item: ${cartitems.length}`
   document.querySelector('#total').textContent = `Total: $ ${sum}.00`
+
+// Apply Coupon here
+  document.querySelector('form').addEventListener('submit', function (event) {
+    event.preventDefault()
+  
+    var coupon_no = document.querySelector('#Coupon').value
+    if (coupon_no == 'masai30') {
+      sum = sum - Math.floor((30 / 100) * sum)
+      document.querySelector('.subtotal').textContent = `Sub-Total: $ ${
+        sum}.00`
+      document.querySelector('#total').textContent = `Total: $ ${sum}.00`
+      alert('Coupon Applied Successfully')
+    } else {
+      alert('Please enter correct coupon no.')
+    }
+  })
 }
 
 // Delete Items here
@@ -76,23 +92,9 @@ var total = data.cartProducts.reduce(function (acc, cv) {
   return acc + Number(cv.productPrice)
 }, 0)
 
-// Apply Coupon here
 
-document.querySelector('form').addEventListener('submit', function (event) {
-  event.preventDefault()
 
-  var coupon_no = document.querySelector('#Coupon').value
-  if (coupon_no == 'masai30') {
-    total = total - Math.floor((30 / 100) * total)
-    document.querySelector('#subtotal').textContent = `Sub-Total: ₹  ${
-      total * 75
-    }.00`
-    document.querySelector('#total').textContent = `Total: ₹ ${total * 75}.00`
-    alert('Coupon Applied Successfully')
-  } else {
-    alert('Please enter correct coupon no.')
-  }
-})
+
 document.querySelector('#btnck').addEventListener('submit', proceed)
 function proceed(event) {
   event.preventDefault()
