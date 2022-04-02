@@ -18,6 +18,8 @@ let data=fetchCartData()
 
 
 function displayCart(cartitems) {
+
+    let sum =0;
     document.querySelector("tbody").textContent = "";
     cartitems.map(function(data, index) {
         var tr = document.createElement("tr");
@@ -38,16 +40,22 @@ function displayCart(cartitems) {
 
         var td5 = document.createElement("td");
         td5.textContent = "$" + " " + data.productPrice + ".00";
-
+        sum += +(data.productPrice)
         var td6 = document.createElement("td");
         td6.innerHTML = "Delete";
         td6.addEventListener("click", function() {
-            deleteItems(index);
+            deleteItems(data._id);
         });
 
         tr.append(td1, td2, td3, td4, td5, td6);
         document.querySelector("tbody").append(tr);
     });
+    
+
+  document.querySelector(".subtotal").textContent = `Sub-Total: $ ${sum}.00`;
+  document.querySelector("#total-item").textContent= `Total Item: ${cartitems.length}`
+  document.querySelector("#total").textContent = `Total: $ ${sum}.00`;
+ 
 }
 
 // Delete Items here
@@ -66,10 +74,12 @@ var total = data.cartProducts.reduce(function(acc, cv) {
     return acc + Number(cv.productPrice);
 }, 0);
 
-document.querySelector("#subtotal").textContent = `Sub-Total: ₹ ${75*total}.00`;
-document.querySelector("#total-item").textContent= `Total Item: ${data.length}`
-document.querySelector("#total").textContent = `Total: ₹ ${total*75}.00`;
+//  let totalDiv = document.querySelector("#total-div")
 
+//  let st= document.querySelector(".subtotal").textContent = `Sub-Total: ₹ ${75*sum}.00`;
+//  let ti = document.querySelector("#total-item").textContent= `Total Item: ${data.length}`
+//   let tt= document.querySelector("#total").textContent = `Total: ₹ ${sum*75}.00`;
+//  totalDiv.append(st,ti,tt)
 // Apply Coupon here
 
 document.querySelector("form").addEventListener("submit", function(event) {

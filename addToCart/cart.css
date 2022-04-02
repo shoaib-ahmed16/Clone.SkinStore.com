@@ -185,11 +185,12 @@ input[type="submit"]:hover {
 #total-div {
     display: grid;
     grid-template-columns: 90%;
-    background-color: #e9e3e3;
+    background-color: #e9e3e3; 
     color: black;
     padding: 0 10px;
     width: 80%;
     margin: 20px auto;
+    /* border: 1px solid red; */
 }
 
 #paylogos{
