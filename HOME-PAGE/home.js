@@ -6,9 +6,9 @@ var time = 4000;
 
 //IMAGES LIST
 
-images[0] = "slidingImage1.PNG";
-images[1] = "slidingImage2.PNG";
-images[2] = "slidingImage3.PNG";
+images[0] = "HOME-PAGE/slidingImage1.PNG";
+images[1] = "HOME-PAGE/slidingImage2.PNG";
+images[2] = "HOME-PAGE/slidingImage3.PNG";
 
 
 //change image

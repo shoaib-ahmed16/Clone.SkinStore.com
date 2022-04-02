@@ -16,7 +16,7 @@ function navbar() {
     <div>
         <div id="navbar">
             <div id="logo-div">
-                <a href="/Home page/index.html">
+                <a href="/index.html">
                     <img id="logo" src="https://s1.thcdn.com/enterprise/assets/skstr-global-113e023e-ecc9-45df-abad-eb92ce1956c9-logo-default.svg" alt="Navbar-logo" />
                 </a>
             </div>
@@ -76,8 +76,8 @@ function navbar() {
             <div class="dropdown">
                 <button class="dropbtn">Makeup</button>
                 <div class="dropdown-content">
-                    <a href="/manoj_kumar/View_All_Cosmetics.html">View All Cousmetics</a>
-                    <a href="/manoj_kumar/Eyeshadow.html">Eye Shadows</a>
+                    <a href="../productpages/SkinCeuticals.html">View All Cousmetics</a>
+                    <a href="../productpages/SkinMedica.html">Eye Shadows</a>
                     <a href="/manoj_kumar/Mascaras.html">Maskaras</a>
                     <a href="/manoj_kumar/Bronzers.html">Bronzers </a>
                     <a href="/manoj_kumar/Face Powders.html">Face Powders</a>

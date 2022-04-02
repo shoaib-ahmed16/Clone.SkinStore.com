@@ -67,7 +67,7 @@ let Login=async()=>{
 
 
           if(data.token){
-            window.location.href="../HOME-PAGE/index.html"
+            window.location.href="../index.html"
           }else{
               alert("Invalid credentials")
           }
