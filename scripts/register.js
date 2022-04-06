@@ -100,7 +100,7 @@ function formValidation(name, email, con_email, password, con_password, number, 
             }
     
             register_data=JSON.stringify(register_data);
-            let res=await fetch("https://projectskinstore.herokuapp.com/register",{
+            let res=await fetch("https://skinstoreproject.herokuapp.com/register",{
                 method:"POST",
                 body:register_data,
                 headers:{

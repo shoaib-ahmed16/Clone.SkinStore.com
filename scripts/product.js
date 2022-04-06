@@ -139,7 +139,7 @@ const addtocart=async(e)=>{
     }
 }
 
-// }
+
 
 
 

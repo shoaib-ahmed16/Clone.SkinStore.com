@@ -77,23 +77,23 @@ function navbar() {
                 <button class="dropbtn">Makeup</button>
                 <div class="dropdown-content">
                     <a href="../SkinCeuticals.html">View All Cousmetics</a>
-                    <a href="../SkinMedica.html">Eye Shadows</a>
-                    <a href="../Mascaras.html">Maskaras</a>
                     <a href="../Bronzers.html">Bronzers </a>
-                    <a href="../Face Powders.html">Face Powders</a>
-                    <a href="../foundation.html">Foundations</a>
-                    <a href="../Lip_liners.html">Lips Liners</a>
                     <a href="../Lipsticks.html">Lipsticks</a> 
-                    <a href="../Liquid_Lipstick.html">Liquid Lipsticks</a> 
+                    <a href="../dior.html">Dior</a>
+                    <a href="">Maskaras</a>
+                    <a href="">Face Powders</a>
+                    <a href="">Foundations</a>
+                    <a href="">Lips Liners</a>
+                    <a href="">Liquid Lipsticks</a> 
 
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn">Skin Care</button>
                 <div class="dropdown-content">
-                <a href="../ViewAllSkincare.html">View All Skin Care</a>
-                <a href="../NewIn.html">New In</a>
-                <a href="../Clean_Skincare.html">Clear SkinCare</a>
+                <a href="../SkinMedica.html">SkinMedica</a>
+                <a href="../SkinCeuticals.html">SkinCeuticals</a>
+                <a href="">Clear SkinCare</a>
                 <a href="#">5*Rated Products</a>
                 <a href="#">Gifts & Sets</a>
                 <a href="#">Supersizes & Duo</a>

@@ -54,7 +54,7 @@ let Login=async()=>{
         }
 
         login_data=JSON.stringify(login_data);
-        let res=await fetch("https://projectskinstore.herokuapp.com/login",{
+        let res=await fetch("https://skinstoreproject.herokuapp.com/login",{
             method:"POST",
             body:login_data,
             headers:{
