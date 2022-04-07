@@ -26,6 +26,33 @@ nav {
     width: 200px;
 }
 
+#container{
+    display: flex;
+    justify-content: center;
+}
+.new-customer{
+    margin:80px 4% ;
+    height: 100px;
+    background: #ffffff;
+    padding: 1% 2% 5%;
+    width: 25%;
+    
+}
+
+#register-btn{
+    background: #2e3337;
+    border: 0;
+    color: white;
+    font-size: 18px;
+    padding: 3% 30%;
+    cursor: pointer;
+
+}
+#register-btn:hover{
+    background: teal;
+    color: #2e3337;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -54,10 +81,12 @@ input[type="submit"]:hover {
 }
 
 #login {
-    margin: 50px auto;
+    /* margin: 50px auto; */
     padding: 1% 2% 5%;
     width: 25%;
     background: #ffffff;
+    margin:80px 4% ;
+
 }
 
 .log-face-google {
@@ -117,4 +146,11 @@ span {
     .log-face-google a {
         margin: 10px;
     }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 860px) {
+    .new-customer{
+        display: none;
+    }
+  
 }
