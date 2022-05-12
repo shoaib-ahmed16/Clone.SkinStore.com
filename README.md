@@ -4,9 +4,6 @@ SkinStore.com is among the leading online beauty retailers worldwide. Millions o
 
 #Deplpoyment fontend Link :https://keen-lolly-681dd2.netlify.app/
 
-
-
-#ProjectSkinStore
-
+#Backend Rest api :
 Backend Rest api code: 
 https://github.com/shoaib-ahmed16/ProjectSkinStore.git
