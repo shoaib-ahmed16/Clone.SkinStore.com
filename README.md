@@ -6,7 +6,6 @@ SkinStore.com is among the leading online beauty retailers worldwide. Millions o
 
 #Backend Rest api :
 https://skinstoreproject.herokuapp.com/product1;
-
 https://skinstoreproject.herokuapp.com/product2;
 
 https://skinstoreproject.herokuapp.com/product3;
