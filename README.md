@@ -7,5 +7,5 @@ SkinStore.com is among the leading online beauty retailers worldwide. Millions o
 #Backend Rest api :
 
 
-Backend Rest api code: 
+Backend Rest api Repo: 
 https://github.com/shoaib-ahmed16/ProjectSkinStore.git
