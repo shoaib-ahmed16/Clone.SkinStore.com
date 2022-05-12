@@ -1,4 +1,4 @@
-# SkinStore-front_end
+# Skin-Store
 
 https://keen-lolly-681dd2.netlify.app/
 
