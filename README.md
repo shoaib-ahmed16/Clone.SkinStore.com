@@ -36,3 +36,6 @@ https://skinstoreproject.herokuapp.com/auth/google;
 Backend Rest api Repo: 
 
 https://github.com/shoaib-ahmed16/ProjectSkinStore.git
+
+
+#Screenshot of SkinStore App:
